@@ -19,7 +19,6 @@ class Application(tk.Frame):
     """ Initialize the Frame. """
     
     super(Application, self).__init__(master)
-    self.grid()
     self.create_widgets()
 
   def create_widgets(self):

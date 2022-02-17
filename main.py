@@ -1,4 +1,42 @@
-# main.py
+#2022/02/17
+#Logan Hamton/Tristan Labbez-johnson
+
+
+from tkinter import *
+from functools import partial
+
+def validateLogin(password):
+  if(password.get() == ""):
+    print("Please enter Password")
+  elif (password.get() =="password"):
+    print("Correct password")
+  else:
+    print("Incorrect Userna an Password")
+  
+  return
+
+
+#window
+tkWindow = Tk()  
+tkWindow.geometry('400x250')  
+tkWindow.title('AMI day 4')
+
+
+#password label and password entry box
+passwordLabel = Label(tkWindow,text="Password").grid(row=1, column=5)  
+password = StringVar()
+passwordEntry = Entry(tkWindow, textvariable=password, show='*').grid(row=1, column=6)  
+
+
+
+
+
+validateLogin = partial(validateLogin, password)
+
+#login button
+loginButton = Button(tkWindow, text="Login", command=validateLogin).grid(row=2, column=4)  
+
+tkWindow.mainloop()# main.py
 # Thorin Schmidt
 # 02/01/22
 
@@ -20,6 +58,8 @@ class Root(tk.Tk):
     super(Root, self).__init__()
     self.title("My Awesome App")
     self.geometry("300x300")
+    app_frame = tk.Frame(root)
+    password_frame = tk.Frame(root)
 
   def change_to_app(self):
     app_frame.pack(fill = 'both', expand = 1)
